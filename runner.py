@@ -74,6 +74,11 @@ class Runner():
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         print("Using device:", self.device)
 
+        # Move dataset tensors to device for efficiency
+        self.train_data.train_facts_tensor = self.train_data.train_facts_tensor.to(self.device)
+        self.valid_data.train_facts_tensor = self.valid_data.train_facts_tensor.to(self.device)
+        self.test_data.train_facts_tensor = self.test_data.train_facts_tensor.to(self.device)
+
         self.tkg = self.train_data.tkg.to(self.device)
 
         self.model = TLoGN(self.n_ent, self.n_rel, self.n_ts, act=self.act, device=self.device, args=args).to(self.device)

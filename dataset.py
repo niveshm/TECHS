@@ -207,7 +207,7 @@ class TKGDataset(Dataset):
         batch_index = torch.LongTensor(batch_index).to(device)
         nonzero_values = torch.LongTensor(nonzero_values).to(device)
 
-        temp_neighbors_facts = self.train_facts_tensor[nonzero_values].to(device)  # X*4 h,r,t,ts
+        temp_neighbors_facts = self.train_facts_tensor[nonzero_values]  # X*4 h,r,t,ts
         temp_neighbors_facts = torch.cat([batch_index.unsqueeze(1), batch_index.unsqueeze(1), temp_neighbors_facts], dim=1)  # X*6 b,h,r,t,ts
 
         batch_list = np.array(range(batch), dtype=np.long)
@@ -231,7 +231,7 @@ class TKGDataset(Dataset):
         node_index = torch.LongTensor(node_index).to(device)
         nonzero_values = torch.LongTensor(nonzero_values).to(device)
 
-        temp_neighbors_facts = self.train_facts_tensor[nonzero_values].to(device)  # X*4 h,r,t,ts
+        temp_neighbors_facts = self.train_facts_tensor[nonzero_values]  # X*4 h,r,t,ts
 
         batch_index = batch_data[:,0][node_index]
         temp_neighbors_facts = torch.cat([batch_index.unsqueeze(1), node_index.unsqueeze(1), temp_neighbors_facts], dim=1)  # X*6 b,n,h,r,t,ts
