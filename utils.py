@@ -17,8 +17,8 @@ def load_fact(file_path):
 
 class Args:
     def __init__(self):
-        self.sample_nodes = 300
-        self.max_nodes = 120
+        self.sample_nodes = 600
+        self.max_nodes = 100
         self.sample_method = 3
         self.sample_ratio = 0.5
         self.score_method = 'att'
@@ -30,8 +30,8 @@ class Args:
         self.lr = 0.001
         self.weight_decay = 0.0000
         self.act = 'relu'
-        self.gcn_dim = 200
-        self.hidden_dim = 50
+        self.gcn_dim = 128
+        self.hidden_dim = 64
         self.gcn_layer = 2
         self.logic_layer = 3
         self.gcn_drop = 0.1
@@ -39,6 +39,6 @@ class Args:
         self.logic_reduce = 'sum'
         self.use_gcn = 1
         self.label_smooth = 0.1
-        self.logic_ratio = 0.65
+        self.logic_ratio = 0.8
         self.num_workers = 8
         self.seed = 95
