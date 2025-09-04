@@ -182,7 +182,6 @@ class Runner():
             scores_all[[tail_ents[:, 0], tail_ents[:, 1]]] = tail_scores
             pred = scores_all
 
-            labels = y
             obj = query_tail
 
             b_range = torch.arange(batch_size).to(self.device)
